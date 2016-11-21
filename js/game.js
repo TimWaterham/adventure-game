@@ -1,15 +1,14 @@
 
 var items = {
 	keycard : false,
-	toolbox : false,
-	gun		: false,
-}
+	toolbox : false
+};
 
 var situations = {
 	power  : false,
 	shield : false,
-	emergencypower: false,
-}
+	emergencypower: false
+};
 
 function pickup(item)
 {
@@ -70,7 +69,7 @@ function Level1() {
 	var opt3 = get('option3');
 	opt3.innerHTML = "Wake up the crew";
 	opt3.onclick = function(){
-		if('power'){
+		if(situations.power){
 			Level6();
 		} else {
 			alert('There is not enough power to safely awaken the crew.');
@@ -132,20 +131,51 @@ function Level3() {
 	var opt1 = get('option1');
 	opt1.innerHTML = 'Turn on Reactor Shielding';
 	opt1.onclick = function(){
-		if("emergencypower"){
+		if(situations.emergencypower){
 			enable("shield");
 		} else { 
 			alert('there is no power to turn the shield on')
 			}
 	};
-	
+
 	var opt2 = get('option2');
 	opt2.innerHTML = "Turn on the Reactor";
 	opt2.onclick = function(){
-		if("shield"){
+		if(situations.shield){
 			enable("power");
 		} else {
 			level7()
+	};
+}
+	var opt3 = get('option3')
+	opt3.innerHTML = "Return to the Hallway"
+	opt3.setAttribute("onClick", "javascript:Level2();");
+
+}
+
+function Level4() {
+	console.log("Level1()");
+	get('level_title').innerHTML = 'Find some tools to help you out';
+	get('status').innerHTML = 'You can try to put the reactor on, but thats dangerous if the emergency power isnt running.';
+	get('level_image').src = "img/armory.jpg";
+	p3();
+	get('option1').style.top = '400px';
+	get('option2').style.top = '400px';
+	get('option1').style.left = '1000px';
+	get('option2').style.left = '100px';
+	get('option3').style.top = '650px';
+	get('option3').style.left = '400px';
+
+	var opt1 = get('option1');
+	opt1.innerHTML = 'Search The Room';
+
+	var opt2 = get('option2');
+	opt2.innerHTML = "Fix the broken conduit";
+	opt2.onclick = function(){
+		if(situations.toolbox){
+			enable("emergencypower");
+		} else {
+			level8()
 	};
 }
 	var opt3 = get('option3')
