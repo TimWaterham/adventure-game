@@ -13,3 +13,23 @@ body {
 	color: black;		
 	font-weight: bold;
 }
+
+button {
+	position: relative;
+	color: #fff;
+	background-color: #26a69a;
+	text-align: center;
+	letter-spacing: .5px;
+	transition: .2s ease-out;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 10px;
+}
+button:hover {
+	background-color: #2bbbad;
+	transition: .2s ease-out;
+}
+
+#level_image {
+	height: 500px;
+}
