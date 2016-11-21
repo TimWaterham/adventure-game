@@ -37,3 +37,18 @@ Wie ben ik moet aan de volgende technische eisen voldoen:
 
 
 
+	var opt2 = document.getElementById('option2');
+	opt2.innerHTML = 'Level 1: optie 1';
+	opt2.onclick = function(){
+		if(HasKey){
+			hallway();
+		} else {
+			alert('U dont haz key dumbass');
+		}
+	}
+
+	var opt3 = document.getElementById('option3');
+
+	opt3.onclick = function(){
+		HasKey = true;
+	}

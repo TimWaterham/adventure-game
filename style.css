@@ -30,6 +30,7 @@ button:hover {
 	transition: .2s ease-out;
 }
 
-#level_image {
-	height: 500px;
+div.items{
+	text-align: center;
+	margin-left : auto;
 }

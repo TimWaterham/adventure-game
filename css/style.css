@@ -15,5 +15,40 @@ body {
 }
 
 #level_image {
-	height: 500px;
+	max-width:90%;
+	max-height:90%;
 }
+
+button {
+	position: relative;
+	color: #000000;
+	background-color: #FFFFFF;
+	text-align: center;
+	letter-spacing: .5px;
+	transition: .2s ease-out;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 10px;
+}
+button:hover {
+	background-color: #000000;
+	transition: .2s ease-out;
+}
+
+div.container {
+    position: fixed;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+	height: 1000px;
+}
+
+#pickup{
+
+	position: fixed;
+	right: 300px;
+	top: 100px;
+}
+
+
