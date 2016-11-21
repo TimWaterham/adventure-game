@@ -1,55 +1,76 @@
-// javascript library for simple game development
 
-document.getElementById('option1').innerHTML = 'Dit is keuze 1';
-document.getElementById('level_title').innerHTML = 'Start het spel';
+var items = {
+	keycard : false,
+	knife 	: false,
+	gun		: false,
+}
 
-var HasKey = false;
+function pickup(item)
+{
+	items[item] = true;
+}
 
-// jquery variant
-//$('#option1').html('Dit is keuze 1');
+//function for picking up certain items
 
+function get(id) {
+	return document.getElementById(id);
+}
 
-// https://www.youtube.com/watch?v=4ba1BqJ4S2M
+function start() {
+	p1();
+	get('option1').innerHTML = 'Play';
+	get('level_title').innerHTML = 'Stranded';
+}
 
+function optA() {
+			alert("You found the keys!!");
+			HasKey = true;
+			Level5();
+}
+function optB() {
+	alert("Nobody present");
+}
+function optC() {
+	alert("Some metal scraps from the attack maybe");
+}
+function reload() {
+	location.reload();
+}
 
+function p1() {
+	get('option1').style.display = 'inline';
+	get('option2').style.display = 'none';
+	get('option3').style.display = 'none';
+}	// 2 buttons
+function p2() {
+	get('option1').style.display = 'inline';
+	get('option2').style.display = 'inline';
+	get('option3').style.display = 'none';
+}	// 3 buttons
+function p3() {
+	get('option1').style.display = 'inline';
+	get('option2').style.display = 'inline';
+	get('option3').style.display = 'inline';
+
+}	// Level 1 Awakening in the Cryoroom
 
 function Level1() {
 	console.log("Level1()");
+	get('level_title').innerHTML = 'And so the journey begins';
+	get('status').innerHTML = 'Youve awaken in the Cryoroom, Ship is on emergency power';
+	p2();
+	get('option1').style.top = '0px';
+	get('option2').style.top = '0px';
+	get('option1').style.left = '0px';
+	get('option2').style.left = '0px';
 
-	var opt1 = document.getElementById('option1');
-	opt1.innerHTML = 'Level 1: optie 1';
+		// Option 1 - Accept
+	var opt1 = get('option1');
+	opt1.innerHTML = 'Walk to the hallway';
 	opt1.setAttribute("onClick", "javascript:Level2();");
 
-	document.getElementById('level_title').innerHTML = 'Level 1';
-	document.getElementById('level_image').src = 'img/level1.jpg';
-
-
-	// only allow option 2 if user has a key in his inventory
-
-	var opt2 = document.getElementById('option2');
-	opt2.innerHTML = 'Level 1: optie 1';
-	opt2.onclick = function(){
-		if(HasKey){
-			Level2();
-		} else {
-			alert('U dont haz key dumbass');
-		}
-	}
-
-	var opt3 = document.getElementById('option3');
-
-	opt3.onclick = function(){
-		HasKey = true;
-	}
-}
-
-function Level2() {
-	console.log("Level2()");
-
-	var opt1 = document.getElementById('option1');
-	opt1.innerHTML = 'Level 2: optie 1';
-	opt1.onClick = 'javascript:Level3();';
-
-	document.getElementById('level_title').innerHTML = 'Level 2';
-	document.getElementById('level_image').src = 'img/level2.jpg';
-}
+		// Option 2 - Look in the Room
+	var opt2 = get('option2');
+	opt2.innerHTML = "Look in the room";
+	opt2.setAttribute("onClick", "");
+}	// Level 2 - Hallway
